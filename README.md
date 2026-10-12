@@ -123,8 +123,8 @@ Make sure you have the following installed on your Windows PC:
 
 ### 1. Clone the Repository
 ```powershell
-git clone https://github.com/your-username/cafe-system.git
-cd "cafe-system"
+git clone https://github.com/nzrnshannen/campus-cafe.git
+cd "campus-cafe"
 ```
 
 ---
