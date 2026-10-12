@@ -1,0 +1,17 @@
+@HostAddress = http://localhost:5000
+
+### Health Check
+GET {{HostAddress}}/api/health
+Accept: application/json
+
+### Products Catalog
+GET {{HostAddress}}/api/products
+Accept: application/json
+
+### Low Stock Alerts
+GET {{HostAddress}}/api/inventory/low-stock
+Accept: application/json
+
+### Orders History
+GET {{HostAddress}}/api/orders
+Accept: application/json
