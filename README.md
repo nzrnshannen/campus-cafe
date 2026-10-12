@@ -149,6 +149,9 @@ mysql -u root -e "source ./backend/db/schema.sql; source ./backend/db/seed.sql;"
 2. Open `backend/db/schema.sql` and execute the entire script. (This creates the `campus_cafe_db` database and all 11 tables).
 3. Open `backend/db/seed.sql` and execute the entire script. (This populates the initial sample products, ingredients, suppliers, staff, and customer accounts).
 
+> 💡 **Automatic Zero-Configuration Fallback:**
+> If whoever clones this does not have MySQL running or installed yet, the C# backend automatically falls back to an embedded zero-config database (`campus_cafe.db` / `campus_cafe.accdb`) with all 12 tables and seed data auto-initialized, ensuring the app runs immediately without crashing.
+
 ---
 
 ### 3. Configure Connection String (OleDb)
