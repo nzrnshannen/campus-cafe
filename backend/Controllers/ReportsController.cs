@@ -147,7 +147,7 @@ public class ReportsController : ControllerBase
         {
             await using var connection = await _db.CreateOpenConnectionAsync();
             await using var cmd = connection.CreateCommand();
-            var isSqlite = _db.ActiveProvider.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
+            var isSqlite = connection.GetType().Name.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
 
             cmd.CommandText = $@"
                 INSERT INTO Customer (UnivID, Name, ContactNumber, CustomerType)

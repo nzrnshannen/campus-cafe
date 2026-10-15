@@ -135,7 +135,7 @@ public class OrdersController : ControllerBase
 
         await using var connection = await _db.CreateOpenConnectionAsync();
         await using var transaction = await connection.BeginTransactionAsync();
-        var isSqlite = _db.ActiveProvider.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
+        var isSqlite = connection.GetType().Name.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
 
         try
         {

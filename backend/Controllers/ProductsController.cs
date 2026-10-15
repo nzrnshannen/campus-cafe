@@ -178,7 +178,7 @@ public class ProductsController : ControllerBase
         await using var transaction = await connection.BeginTransactionAsync();
         try
         {
-            var isSqlite = _db.ActiveProvider.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
+            var isSqlite = connection.GetType().Name.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
 
             // 1. Insert Product record
             await using var cmd = connection.CreateCommand();

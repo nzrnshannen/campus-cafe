@@ -116,7 +116,7 @@ public class InventoryController : ControllerBase
         {
             await using var connection = await _db.CreateOpenConnectionAsync();
             await using var cmd = connection.CreateCommand();
-            var isSqlite = _db.ActiveProvider.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
+            var isSqlite = connection.GetType().Name.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
 
             cmd.CommandText = $@"
                 INSERT INTO Ingredient (IngredientName, UnitOfMeasurement, CurrentQuantity, MinimumStockLevel)
@@ -338,7 +338,7 @@ public class InventoryController : ControllerBase
 
         await using var connection = await _db.CreateOpenConnectionAsync();
         await using var transaction = await connection.BeginTransactionAsync();
-        var isSqlite = _db.ActiveProvider.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
+        var isSqlite = connection.GetType().Name.Contains("Sqlite", StringComparison.OrdinalIgnoreCase);
 
         try
         {
